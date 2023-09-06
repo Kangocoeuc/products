@@ -1,13 +1,22 @@
+import os #operation system
 products = []
-#读取档案
-with open('products.csv', 'r', encoding = 'utf-8') as f:
-	for line in f:
-		if '商品,价格' in line:
-			continue   #继续
-		name, price = line.strip().split(',')  #以,为切割标准
-		products.append([name, price])
+if os.path.isfile('products.csv'):
+	print('yeah!')
+	with open('products.csv', 'r', encoding = 'utf-8') as f:
+		for line in f:
+			if '商品,价格' in line:
+				continue   #继续
+			name, price = line.strip().split(',')  #以,为切割标准
+			products.append([name, price])
 
-print(products)
+	print(products)
+
+else:
+	print('找不到档案.....')
+
+
+#读取档案
+
 
 
 while True:
