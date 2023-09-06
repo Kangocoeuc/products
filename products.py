@@ -2,6 +2,8 @@ products = []
 #读取档案
 with open('products.csv', 'r', encoding = 'utf-8') as f:
 	for line in f:
+		if '商品,价格' in line:
+			continue   #继续
 		name, price = line.strip().split(',')  #以,为切割标准
 		products.append([name, price])
 
